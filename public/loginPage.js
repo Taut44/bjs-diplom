@@ -3,7 +3,7 @@
 let userForm = new UserForm();
 
 userForm.loginFormCallback = data => {
-	ApiConnector.login(data, response => response.success ? location.reload() : loginErrorMessageBox(response.error))
+	ApiConnector.login(data, response => response.success ? location.reload() : userForm.setLoginErrorMessage(response.error));
 };
 
 userForm.registerFormCallback = data => {
